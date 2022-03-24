@@ -52,8 +52,8 @@ public class Panel extends JFrame {
         panel.setLayout(null);
       //  auto1=new JLabel();
         //auto1.setBounds(180,220,50,50);
-        autoimageAzul= new ImageIcon("/home/bonnesbaby14/Escritorio/desarrollo-movil/primer_parcial/proyecto_carril/src/com/company/auto.png");
-        autoimageRojo= new ImageIcon("/home/bonnesbaby14/Escritorio/desarrollo-movil/primer_parcial/proyecto_carril/src/com/company/auto2.png");
+        autoimageAzul= new ImageIcon("/home/bonnesbaby14/Escritorio/desarrollo-movil/primer_parcial/proyecto_santa/src/com/company/auto.png");
+        autoimageRojo= new ImageIcon("/home/bonnesbaby14/Escritorio/desarrollo-movil/primer_parcial/proyecto_santa/src/com/company/auto2.png");
 
         //auto1.setIcon(new ImageIcon(autoimage.getImage().getScaledInstance(auto1.getWidth(),auto1.getHeight(), Image.SCALE_SMOOTH)));
 
@@ -73,6 +73,10 @@ public class Panel extends JFrame {
                 auto.setIcon(new ImageIcon(autoimageAzul.getImage().getScaledInstance(auto.getWidth(),auto.getHeight(), Image.SCALE_SMOOTH)));
                 panel.add(auto);
 
+                Duendes duende=new Duendes(auto);
+                duende.setName(hayAzul+"");
+                duende.start();
+
                 hayAzul++;
                 System.out.println("El numero de azules es: "+hayAzul);
                 panel.revalidate();
@@ -88,15 +92,18 @@ public class Panel extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 JLabel auto=new JLabel("d");
-                auto.setBounds(720,220+escaleraReno,60,60);
+                auto.setBounds(720,190+escaleraReno,60,60);
                 auto.setIcon(new ImageIcon(autoimageRojo.getImage().getScaledInstance(auto.getWidth(),auto.getHeight(), Image.SCALE_SMOOTH)));
                 panel.add(auto);
 
+                Reno reno=new Reno(auto);
+                reno.setName(hayRojo+"");
+                reno.start();
                 hayRojo++;
                 System.out.println("El numero de renos es: "+hayRojo);
                 panel.revalidate();
                 panel.repaint();
-                escaleraReno+=50;
+                escaleraReno+=30;
 
             }
         });

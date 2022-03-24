@@ -8,7 +8,7 @@ public class Observador extends Thread{
     public void run() {
         while(true){
 
-            if(Panel.hayRojo<=0 && Panel.hayAzul<=0){
+            if(Panel.hayRojo<9 && Panel.hayAzul<3){
                System.out.println("santa duerme");
 
                 Panel.semaforoAzul=0;
@@ -20,7 +20,6 @@ public class Observador extends Thread{
                 System.out.println("acceso azul");
                 while (Panel.hayAzul>0){
 
-                    System.out.println("santa atiende a duendes");
                 }
 
                 Panel.accesoAzul=false;
@@ -31,7 +30,7 @@ public class Observador extends Thread{
 
                 Panel.accesoRojo=true;
                 while (Panel.hayRojo>0){
-                    System.out.println("Santa se va a repartir");
+
 
                 }
 
