@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name"></string>
+
+    <string name="codigo">Código</string>
+    <string name="costo">Costo</string>
+    <string name="chica">Chica</string>
+    <string name="mediana">Mediana</string>
+    <string name="grande">Grande</string>
+    <string name="negro">Negro</string>
+    <string name="blanco">Blanco</string>
+    <string name="naranja">Narnja</string>
+    <string name="rojo">Rojo</string>
+    <string name="azul">Azul</string>
+    <string name="marca">Marca</string>
+    <string name="modelo">Modelo</string>
+</resources>
