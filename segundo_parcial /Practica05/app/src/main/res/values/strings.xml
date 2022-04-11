@@ -3,14 +3,20 @@
 
     <string name="codigo">Código</string>
     <string name="costo">Costo</string>
-    <string name="chica">Chica</string>
-    <string name="mediana">Mediana</string>
-    <string name="grande">Grande</string>
-    <string name="negro">Negro</string>
-    <string name="blanco">Blanco</string>
-    <string name="naranja">Narnja</string>
-    <string name="rojo">Rojo</string>
-    <string name="azul">Azul</string>
+    <string name="chica">5</string>
+    <string name="mediana">10</string>
+    <string name="grande">15</string>
+    <string name="negro">2</string>
+    <string name="blanco">3</string>
+    <string name="naranja">4</string>
+    <string name="rojo">5</string>
+    <string name="azul">6</string>
     <string name="marca">Marca</string>
     <string name="modelo">Modelo</string>
+    <string name="uno">EUA</string>
+    <string name="dos">MEXICO</string>
+    <string name="tres">ALEMANIA</string>
+    <string name="cuatro">CANADA</string>
+
+
 </resources>

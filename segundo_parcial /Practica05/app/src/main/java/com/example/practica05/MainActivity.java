@@ -4,18 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private EditText codigo, costo, marca, modelo;
     private RadioButton chica, mediana, grande;
     private CheckBox negro, blanco, rojo, azul, naranja;
-    RopaDeportiva ropa[] = new RopaDeportiva[15];
+    private Spinner spinenr;
+    Viaje ropa[] = new Viaje[10];
     Boolean uno = false, dos = false;
-    String aux, aux2;
+    int aux, aux2;
     int con = 0, valor=0;
 
     @Override
@@ -24,8 +27,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         codigo = findViewById(R.id.txtCodigo);
         costo = findViewById(R.id.txtCosto);
-        marca = findViewById(R.id.txtMarca);
-        modelo = findViewById(R.id.txtModelo);
+        spinenr=findViewById(R.id.spinner);
+        String [] valores={"EUA","ALEMANIA","LONDRES","MEXICO"};
+        ArrayAdapter<String> adapter= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,valores);
+        spinenr.setAdapter(adapter);
+
         chica = (RadioButton) findViewById(R.id.rbChico);
         mediana = (RadioButton) findViewById(R.id.rbMediano);
         grande = (RadioButton) findViewById(R.id.rbGrande);
@@ -35,44 +41,45 @@ public class MainActivity extends AppCompatActivity {
         azul = findViewById(R.id.cbxAzul);
         naranja = findViewById(R.id.cbxNaranja);
 
-        for (int i=0; i<15; i++){
-            ropa [i] = new RopaDeportiva();
+        for (int i=0; i<10; i++){
+            ropa [i] = new Viaje();
         }
     }
 
     public void registrarDatos(View view){
-        if(con < 15){
+        if(con < 10){
         try {
-            ropa[con].setMarca(marca.getText().toString());
+
             ropa[con].setCodigo(codigo.getText().toString());
-            ropa[con].setCosto(costo.getText().toString());
-            ropa[con].setModelo(modelo.getText().toString());
+            ropa[con].setCosto(Float.parseFloat(costo.getText().toString()));
+            ropa[con].setOrigen(spinenr.getSelectedItem().toString());
+
 
             if (chica.isChecked()) {
-                aux2 = "C-";
+                aux2 = 5;
             } else if (mediana.isChecked()) {
-                aux2 = "M-";
+                aux2 = 10;
             } else if (grande.isChecked()) {
-               aux2 = "G-";
+               aux2 = 15;
             }
 
-            ropa[con].setTalla(aux2);
+            ropa[con].setDias(aux2);
 
             if (blanco.isChecked()) {
-                aux += "Blanco-";
+                aux = 3;
             } if (negro.isChecked()) {
-                aux += "Negro-";
+                aux = 2;
             } if (rojo.isChecked()) {
-                aux += "Rojo-";
+                aux = 5;
             } if (azul.isChecked()) {
-                aux += "Azul-";
+                aux =6;
             } if (naranja.isChecked()) {
-                aux += "Naranja-";
+                aux = 4;
             }
 
-            ropa[con].setColores(aux);
+            ropa[con].setPersonas(aux);
 
-            Toast.makeText(this, "Ropa guardada de forma correcta", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Viaje guardada de forma correcta", Toast.LENGTH_SHORT).show();
 
             con++;
             limpiar();
@@ -84,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         }else {
-            Toast.makeText(this, "Ropa llena, ya no hay espacio", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Viaje llena, ya no hay espacio", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -93,9 +100,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void limpiar(){
+        System.out.println("se denio limpiar");
         codigo.setText("");
-        marca.setText("");
-        modelo.setText("");
         costo.setText("");
         azul.setChecked(false);
         naranja.setChecked(false);
@@ -115,19 +121,18 @@ public class MainActivity extends AppCompatActivity {
 
             for (int i=0; i<=con; i++){
                 if(ropa[i].getCodigo().equals(codigo.getText().toString())){
-                    marca.setText(ropa[i].getMarca());
-                    modelo.setText(ropa[i].getModelo());
-                    costo.setText(ropa[i].getCosto());
 
-                    if(ropa[i].getTalla().equals("C-")) chica.setChecked(true);
-                    else if (ropa[i].getTalla().indexOf("M") >= 0) mediana.setChecked(true);
-                    else if (ropa[i].getTalla().indexOf("G") >= 0) grande.setChecked(true);
+                    costo.setText(String.valueOf(ropa[i].getCosto()));
 
-                    if (ropa[i].getColores().indexOf("B") >= 0) blanco.setChecked(true);
-                    if (ropa[i].getColores().indexOf("Ne") >= 0) negro.setChecked(true);
-                    if (ropa[i].getColores().indexOf("A") >= 0) azul.setChecked(true);
-                    if (ropa[i].getColores().indexOf("Na") >= 0) naranja.setChecked(true);
-                    if (ropa[i].getColores().indexOf("R") >= 0) rojo.setChecked(true);
+                    if(ropa[i].getDias()==5)chica.setChecked(true);
+                    else if (ropa[i].getDias()==10) mediana.setChecked(true);
+                    else if (ropa[i].getDias()==15) grande.setChecked(true);
+
+                    if (ropa[i].getPersonas()==3)blanco.setChecked(true);
+                    if (ropa[i].getPersonas()==2) negro.setChecked(true);
+                    if (ropa[i].getPersonas()==6) azul.setChecked(true);
+                    if (ropa[i].getPersonas()==4) naranja.setChecked(true);
+                    if (ropa[i].getPersonas()==5) rojo.setChecked(true);
                     uno = true;
 
 
@@ -135,10 +140,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
             if(uno == true)  {
-                Toast.makeText(this, "La ropa existe", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "El viaje existe", Toast.LENGTH_SHORT).show();
             }
             else {
-                Toast.makeText(this, "No existe la ropa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "No existe el viaje", Toast.LENGTH_SHORT).show();
                 limpiar();
             }
             uno = false;
@@ -149,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static RopaDeportiva[] removeTheElement(RopaDeportiva[] arr, int index)
+    public static Viaje[] removeTheElement(Viaje[] arr, int index)
     {
 
         if (arr == null || index < 0
@@ -158,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             return arr;
         }
 
-        RopaDeportiva[] anotherArray = new RopaDeportiva[arr.length - 1];
+        Viaje[] anotherArray = new Viaje[arr.length - 1];
 
 
         for (int i = 0, k = 0; i < arr.length; i++) {
@@ -183,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                 if(ropa[i].getCodigo().equals(codigo.getText().toString())){
                     dos = true;
                     ropa = removeTheElement(ropa, i);
-                    Toast.makeText(this, "Se eliminó la ropa!" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Se eliminó el viaje!" , Toast.LENGTH_SHORT).show();
                     con--;
                 }
             }
