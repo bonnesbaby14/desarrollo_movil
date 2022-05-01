@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">practica7</string>
+
+    <string-array name="talla">
+        <item>Chica</item>
+        <item>Mediana</item>
+        <item>Grande</item>
+    </string-array>
+    <string-array name="productos">
+        <item>Sudadera</item>
+        <item>Camisa</item>
+        <item>Pantalon</item>
+        <item>Sandalia</item>
+        <item>Pulsera</item>
+    </string-array>
+
+
+</resources>
