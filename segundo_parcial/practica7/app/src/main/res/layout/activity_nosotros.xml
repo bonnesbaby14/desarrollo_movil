@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Nosotros">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="334dp"
+        android:layout_height="201dp"
+        android:text="Somos una tienda especializada en ropa y complementos situada en el corazón de Altea. Ofrecemos moda a todo tipo de mujeres que buscan un estilismo elegante, femenino y diferenciador para el día a día y los momentos más especiales.  Buscamos las últimas tendencias en moda a la vez que nos adaptamos a las exigencias de nuestras consumidoras. Porque en Lluna tú eres la auténtica protagonista. Nos encargamos de que te sientas en un ambiente agradable y cuidamos hasta el último detalle para que disfrutes de la ropa que mejor se adapta a tu estilo y personalidad."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
