@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">parcial2RodriguezGabriel</string>
+
+
+    <string-array name="users">
+        <item>uno</item>
+        <item>dos</item>
+        <item>tres</item>
+        <item>cuaro</item>
+        <item>cinco</item>
+    </string-array>
+
+
+    <string name="entrar">Entrar</string>
+    <string name="salir">Salir</string>
+    <string name="madera">Madera</string>
+    <string name="metal">Metal</string>
+    <string name="plastico">Plastico</string>
+
+    <string name="negro">Negro</string>
+    <string name="blanco">Blanco</string>
+    <string name="acabados">Acabados</string>
+    <string name="material">Mayterial</string>
+    <string name="codigo">Codigo</string>
+    <string name="costo">Costo</string>
+    <string name="Modelo">Modelo</string>
+
+    <string name="actualizar">Actualizar</string>
+    <string name="buscar">Buscar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="registar">REgistrar</string>
+</resources>
